@@ -12,7 +12,7 @@ public class DefUtls {
         PsiElement[] vars = PsiTreeUtil.collectElements(file, e -> {
             if (e instanceof PsiVariable) {
                 if (((PsiVariable) e).getType().getPresentableText().equals(filterName)) {
-                    if (((PsiVariable) e).getModifierList().hasModifierProperty("final")) {
+                    if (((PsiVariable) e).getModifierList().hasModifierProperty("final") && ((PsiVariable) e).getModifierList().hasModifierProperty("static")) {
                         return true;
                     }
                 }
